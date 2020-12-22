@@ -7,7 +7,12 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    courseList: {},
+    courseChooseTemp: [-1,0],
+    courseChoose: ["请选择"],
+    courseChooseList: {},
+    courseComments: {}
   },
 
   onLoad: function() {
@@ -34,6 +39,22 @@ Page({
         }
       }
     })
+
+    wx.cloud.callFunction({
+      name: 'getcourselist',
+      data: {},
+      success: res => {
+        console.log(res.result)
+        this.setData({
+          courseList: res.result.list,
+          courseChooseList: [res.result.list.map(i => {return i._id}),[]]
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [getcourselist] 调用失败', err)
+      }
+    })
+
   },
 
   onGetUserInfo: function(e) {
@@ -54,65 +75,53 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
       }
     })
   },
 
-  // 上传图片
-  doUpload: function () {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        wx.showLoading({
-          title: '上传中',
+  bindMultiPickerColumnChange: function (e) {
+    switch (e.detail.column) {
+      case 0:
+        this.setData({
+          courseChooseTemp: [e.detail.value, 0],
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].teachers]
         })
-
-        const filePath = res.tempFilePaths[0]
-        
-        // 上传图片
-        const cloudPath = `my-image${filePath.match(/\.[^.]+?$/)[0]}`
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-            
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
-            })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
+        break;
+      case 1:
+        this.setData({
+          courseChooseTemp: [this.data.courseChooseTemp[0],e.detail.value]
         })
-      },
-      fail: e => {
-        console.error(e)
-      }
+        break;
+    }
+  },
+
+  bindMultiPickerChange: function (e) {
+    this.setData({
+      courseChoose: [this.data.courseChooseList[0][this.data.courseChooseTemp[0]], this.data.courseChooseList[1][this.data.courseChooseTemp[1]]]
     })
   },
+
+  bindSearch: function () {
+    if(this.data.courseChoose.length == 2)
+      wx.cloud.callFunction({
+        name: 'getComments',
+        data: {
+          class: this.data.courseChoose[0],
+          teacher: this.data.courseChoose[1]
+        },
+        success: res => {
+          console.log(res.result)
+          this.setData({
+            courseComments: res.result.data[0]
+          })
+        },
+        fail: err => {
+          console.error('[云函数] [getComments] 调用失败', err)
+        }
+      })
+  }
 
 })
