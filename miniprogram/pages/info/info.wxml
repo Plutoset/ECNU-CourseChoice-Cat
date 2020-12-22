@@ -1,0 +1,9 @@
+<!--pages/info.wxml-->
+<view>您所查询的课程是{{detail.teacher}}老师的{{detail.class}}课</view>
+<block wx:for="{{detail.info}}" wx:key="index">
+  <view class="row-center"><image style="width: 40px; height: 40px;" mode="scaleToFill" src="../../查询.png"></image></view>
+  <view>{{item}}</view>
+</block>
+<view>
+  <button type="default" bindtap="bindViewTap">返回</button>
+</view>

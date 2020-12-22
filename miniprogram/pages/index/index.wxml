@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="row-center"><image style="width: 150px; height: 150px;" mode="scaleToFill" src="../../查询.png"></image></view> 
+<view class="container">
+<view class="section">
+  <view class="section__title">点击选择想要查询的课程和对应的老师</view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+    </view>
+  </picker>
+</view>
+<view >
+  <button type="default" bindtap="bindViewTap">查询</button>
+  </view>
+<view class="button-info">该小程序仅作选课参考使用，具体选课请大家对自己负责，比心</view>
+</view>
