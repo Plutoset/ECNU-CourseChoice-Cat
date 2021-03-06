@@ -17,7 +17,7 @@
   </view>
 
   <view class="comments">
-    <view wx:for="{{courseComments.info}}" class="comment">
+    <view wx:for="{{courseComments}}" class="comment">
       <view>
         {{item}}
       </view>
