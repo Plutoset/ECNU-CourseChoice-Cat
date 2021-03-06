@@ -1,13 +1,43 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/find/find",
+    "pages/user/user",
+    "pages/class/class",
+    "pages/comment/comment",
+    "pages/preference/preference",
+    "pages/label/label",
+    "pages/about/about",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "ECNU 体育课程查询",
+    "navigationBarTitleText": "ECNU 选课助手",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "搜索",
+      "iconPath": "icon/_search.png",
+      "selectedIconPath": "icon/search.png"
+    },
+    {
+      "pagePath": "pages/find/find",
+      "text": "发现",
+      "iconPath": "icon/_find.png",
+      "selectedIconPath": "icon/find.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "icon/_my.png",
+      "selectedIconPath": "icon/my.png"
+    }
+    ],
+    "selectedColor": "d81e06"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

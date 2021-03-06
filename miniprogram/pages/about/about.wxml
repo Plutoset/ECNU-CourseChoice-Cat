@@ -1,0 +1,9 @@
+<view>
+  <view class="font_setting">欢迎使用华东师范大学选课猫！</view>
+  <view class="font_setting">本小程序用于上海市计算机应用能力大赛</view>
+  <view class="font_setting">小程序作者：</view>
+  <view class="font_setting">陈姚宇</view>
+  <view class="font_setting">林霁</view>
+  <view class="font_setting">汤博</view>
+  <view class="font_setting">制作不易，请勿抄袭</view>
+</view>

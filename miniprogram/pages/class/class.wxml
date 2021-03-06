@@ -1,0 +1,5 @@
+<!--pages/class/class.wxml-->
+<view class="font_setting">在这里可以添加您选过的课程</view>
+<view class="font_setting">我们会根据您的选课在“发现”中</view>
+<view class="font_setting">为您推荐您可能感兴趣的课程</view>
+<view class="font_setting">添加的越多，推荐的越准哦~</view>
