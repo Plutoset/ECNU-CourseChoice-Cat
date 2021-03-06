@@ -1,0 +1,71 @@
+
+<view class="user_info_wrap">
+  <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+    <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+      <view class="user_name">{{userinfo.nickName}}</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">登录</button>
+  </view>
+</view>
+<!-- <view wx:if="{{userinfo.avatarUrl}}" class="function_button">
+  <button style="width:30rpx;height:30rpx;" type="primary" bindgetuserinfo="handleGetUserInfo">a</button>
+  <button style="width:30rpx;height:30rpx;" type="primary" bindgetuserinfo="g">b</button>
+  <button style="width:30rpx;height:30rpx;">c</button>
+  <view class="image_button_1"><button>a</button></view>
+  <view class="image_button_2"><button>b</button></view>
+  <view class="image_button_3"><button>c</button></view>
+</view> -->
+<!-- <view class="test1">
+
+
+  <view wx:if="{{userinfo.avatarUrl}}" class="test">
+    <button type="primary" style="height:50rpx;width:50rpx;">a</button>
+    <button type="primary" style="height:50rpx;width:50rpx;">a</button>
+    <button type="primary" style="height:50rpx;width:50rpx;">a</button>
+  </view>
+  <view wx:if="{{userinfo.avatarUrl}}" class="test">
+    <button type="primary" style="height:50rpx;width:50rpx;">b</button>
+    <button type="primary" style="height:50rpx;width:50rpx;">b</button>
+    <button type="primary" style="height:50rpx;width:50rpx;">b</button>
+    <navigator>a</navigator>
+  </view>
+</view> -->
+<view wx:if="{{userinfo.avatarUrl}}" class="user_content">
+  <view class="function_wrap">
+    <view class="user_main">
+      <view class="function_title">功能</view>
+      <view class="function_content">
+        <navigator url="../../pages/class/class">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/class.png"></image>
+          <view class="function_name">我的选课</view>
+        </navigator>
+        <navigator url="../../pages/comment/comment">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/comment.png"></image>
+          <view class="function_name">我的吐槽</view>
+        </navigator>
+        <navigator url="../../pages/preference/preference">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/preference.png"></image>
+          <view class="function_name">选课偏好</view>
+        </navigator>
+      </view>
+      <view class="function_content">
+        <navigator url="../../pages/label/label">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/label.png"></image>
+          <view class="function_name">贴的标签</view>
+        </navigator>
+        <navigator url="../../pages/about/about">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/about.png"></image>
+          <view class="function_name">关于我们</view>
+        </navigator>
+        <navigator url="../../pages/feedback/feedback">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/feedback.png"></image>
+          <view class="function_name">意见反馈</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

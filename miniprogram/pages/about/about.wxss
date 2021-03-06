@@ -1,0 +1,6 @@
+/* pages/about/about.wxss */
+.font_setting{
+  font-size: medium;
+  text-align: center;
+  margin-top: 5%;
+}
