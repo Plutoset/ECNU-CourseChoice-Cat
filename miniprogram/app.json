@@ -3,11 +3,11 @@
     "pages/index/index",
     "pages/find/find",
     "pages/user/user",
-    "pages/class/class",
-    "pages/comment/comment",
-    "pages/preference/preference",
-    "pages/label/label",
-    "pages/about/about",
+    "pages/myCourses/myCourses",
+    "pages/cmtMyComments/cmtMyComments",
+    "pages/myCoursePreferences/myCoursePreferences",
+    "pages/myTags/myTags",
+    "pages/aboutUs/aboutUs",
     "pages/feedback/feedback"
   ],
   "window": {
