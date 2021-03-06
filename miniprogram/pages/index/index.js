@@ -46,8 +46,8 @@ Page({
       success: res => {
         console.log(res.result)
         this.setData({
-          courseList: res.result.list,
-          courseChooseList: [res.result.list.map(i => {return i._id}),[]]
+          courseList: res.result.data,
+          courseChooseList: [res.result.data.map(i => {return i._id}),[]]
         })
       },
       fail: err => {
@@ -87,7 +87,7 @@ Page({
       case 0:
         this.setData({
           courseChooseTemp: [e.detail.value, 0],
-          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].teachers]
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].teacher]
         })
         break;
       case 1:
@@ -115,7 +115,7 @@ Page({
         success: res => {
           console.log(res.result)
           this.setData({
-            courseComments: res.result.data[0]
+            courseComments: res.result.data.map(i => {return i.info})
           })
         },
         fail: err => {
