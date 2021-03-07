@@ -6,19 +6,21 @@ Page({
     courseChooseTemp: [0,0,0],
     courseChoose: ["请选择"],
     courseChooseList: {},
+    myCourses:{},
+    openID: '',
   },
 
   onLoad: function (options) {
-    var that = this 
-    var openID = ''
+   
     wx.cloud.callFunction({
       name: 'login',
       data:{},
       success: res => {
         console.log(res.result)
-        that.setData({
+        this.setData({
           openID: res.result.openid,
         })
+        this.getMyCourses()
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
@@ -46,14 +48,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -98,7 +100,7 @@ Page({
         data: {
           sort: this.data.courseChoose[0],
           class: this.data.courseChoose[1],
-          teacher: this.data.courseChoose[2],
+          teacher: [this.data.courseChoose[2]],
           student: this.data.openID,
           tag: [],
           info: [],
@@ -107,7 +109,7 @@ Page({
           wx.showToast({
             title: '添加成功',
             duration: 2000
-          })
+          })        
         },
         fail: err => {
           console.error('[云函数] [cmtMyCourses] 调用失败', err)
@@ -115,8 +117,9 @@ Page({
             title: '添加失败',
             duration: 2000
           })
-        }
+        },
       })
+      this.getMyCourses()
   },
 
   bindMultiPickerColumnChange: function (e) {
@@ -148,5 +151,26 @@ Page({
       courseChoose: [this.data.courseChooseList[0][this.data.courseChooseTemp[0]], this.data.courseChooseList[1][this.data.courseChooseTemp[1]],this.data.courseChooseList[2][this.data.courseChooseTemp[2]] ]
     })
   },
+  
+  getMyCourses: function(){
+    wx.cloud.callFunction({
+      name: 'getMyCourses',
+      data: {
+        openid: this.data.openID,
+      },
+      success: res => {
+        console.log(res.result)
+        this.setData({          
+          myCourses: res.result.data
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [getMyCourses] 调用失败', err)
+      }
+    })
+  } 
 })
+
+ 
+
 

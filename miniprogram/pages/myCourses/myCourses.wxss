@@ -30,3 +30,28 @@ page {
   border-radius: 2rpx;
   height: 100%;
 }
+
+.devide{
+  margin-top: 100rpx;
+}
+
+.myCourses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.myCourse {
+  border-style: solid;
+  border-width: medium;
+  border-color: #91D300;
+  width: 90%;
+  margin: 10rpx 0 10rpx 0;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+

@@ -30,15 +30,19 @@
       <button type="primary" bindtap="cmtMyCourses" style="width:100%">添加</button>
     </view>
   </view>
-
+  <!--分割线-->
   <view class="devide">
     <text>
-    
-    
-      ---------点击查看已修课程---------
-
-
+      ---------已修课程---------
     </text>
+  </view>
+  <!--显示已修课程-->
+  <view class="myCourses">
+    <view wx:for="{{myCourses}}" class="myCourse">
+      <view>
+        {{item.sort}}-{{item.class}}-{{item.teacher}}
+      </view>
+    </view>
   </view>
 </view>
 
