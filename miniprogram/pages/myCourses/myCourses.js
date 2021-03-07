@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   data: {
     courseList: {},
@@ -7,6 +9,23 @@ Page({
   },
 
   onLoad: function (options) {
+    var that = this 
+    var openID = ''
+    wx.cloud.callFunction({
+      name: 'login',
+      data:{},
+      success: res => {
+        console.log(res.result)
+        that.setData({
+          openID: res.result.openid,
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
+    
+    
     wx.cloud.callFunction({
       name: 'getcourselist',
       data: {},
@@ -80,14 +99,22 @@ Page({
           sort: this.data.courseChoose[0],
           class: this.data.courseChoose[1],
           teacher: this.data.courseChoose[2],
-          student: "cyy",
+          student: this.data.openID,
           tag: [],
           info: [],
         },
         success: res => {  
+          wx.showToast({
+            title: '添加成功',
+            duration: 2000
+          })
         },
         fail: err => {
           console.error('[云函数] [cmtMyCourses] 调用失败', err)
+          wx.showToast({
+            title: '添加失败',
+            duration: 2000
+          })
         }
       })
   },
