@@ -39,25 +39,25 @@
     <view class="user_main">
       <view class="function_title">功能</view>
       <view class="function_content">
-        <navigator url="../../pages/class/class">
+        <navigator url="../../pages/myCourses/myCourses">
           <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/class.png"></image>
           <view class="function_name">我的选课</view>
         </navigator>
-        <navigator url="../../pages/comment/comment">
+        <navigator url="../../pages/cmtMyComments/cmtMyComments">
           <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/comment.png"></image>
           <view class="function_name">我的吐槽</view>
         </navigator>
-        <navigator url="../../pages/preference/preference">
+        <navigator url="../../pages/myCoursePreferences/myCoursePreferences">
           <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/preference.png"></image>
           <view class="function_name">选课偏好</view>
         </navigator>
       </view>
       <view class="function_content">
-        <navigator url="../../pages/label/label">
+        <navigator url="../../pages/myTags/myTags">
           <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/label.png"></image>
           <view class="function_name">贴的标签</view>
         </navigator>
-        <navigator url="../../pages/about/about">
+        <navigator url="../../pages/aboutUs/aboutUs">
           <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/about.png"></image>
           <view class="function_name">关于我们</view>
         </navigator>

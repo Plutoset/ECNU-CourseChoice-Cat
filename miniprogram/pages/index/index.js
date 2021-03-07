@@ -83,6 +83,7 @@ Page({
   },
 
   bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     switch (e.detail.column) {
       case 0:
         this.setData({
@@ -99,6 +100,7 @@ Page({
   },
 
   bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       courseChoose: [this.data.courseChooseList[0][this.data.courseChooseTemp[0]], this.data.courseChooseList[1][this.data.courseChooseTemp[1]]]
     })
