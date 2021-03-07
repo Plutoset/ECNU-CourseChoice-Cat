@@ -9,8 +9,9 @@ exports.main = async (event, context) => {
   const countResult = await db.collection('Evaluation')
   .aggregate()
   .group({
-    _id: '$class',
-    teacher: $.addToSet('$teacher')
+    _id: '$sort',
+    'class': $.addToSet('$class'),
+    'teacher': $.addToSet('$teacher'),
   })
   .group({
     _id: null, count: { $sum: 1 }
@@ -25,8 +26,9 @@ exports.main = async (event, context) => {
   for (let i = 0; i < batchTimes; i++) {
     const promise = db.collection('Evaluation').aggregate()
     .group({
-      _id: '$class',
-      teacher: $.addToSet('$teacher')
+      _id: '$sort',
+      'class': $.addToSet('$class'),
+      'teacher': $.addToSet('$teacher'),
     })
     .skip(i * MAX_LIMIT)
     .limit(MAX_LIMIT)
