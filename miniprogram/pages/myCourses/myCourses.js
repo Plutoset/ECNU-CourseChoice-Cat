@@ -1,10 +1,26 @@
 Page({
   data: {
-    courseChoose: ["请选择"]
+    courseList: {},
+    courseChooseTemp: [0,0,0],
+    courseChoose: ["请选择"],
+    courseChooseList: {},
   },
 
   onLoad: function (options) {
-    
+    wx.cloud.callFunction({
+      name: 'getcourselist',
+      data: {},
+      success: res => {
+        console.log(res.result)
+        this.setData({
+          courseList: res.result.data,
+          courseChooseList: [res.result.data.map(i => i.sort), res.result.data[0].classes.map(i => i.class), res.result.data[0].classes[0].teachers]
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [getcourselist] 调用失败', err)
+      }
+    })
   },
   
   /**
@@ -57,22 +73,16 @@ Page({
   },
 
   cmtMyCourses:  function () {
-    //if(this.data.courseChoose.length == 3)
+    if(this.data.courseChoose.length == 3)
       wx.cloud.callFunction({
         name: 'cmtMyCourses',
         data: {
-          sort: "英语类",
-          class: "学术英语写作",
-          teacher: ["关晓仙"],
+          sort: this.data.courseChoose[0],
+          class: this.data.courseChoose[1],
+          teacher: this.data.courseChoose[2],
           student: "cyy",
           tag: [],
           info: [],
-          //sort: "英语类",
-          //class: "学术英语写作",
-          //teacher: ["关晓仙"],
-          //student: "cyy",
-          //tag: [],
-          //info: [],
         },
         success: res => {  
         },
@@ -80,6 +90,36 @@ Page({
           console.error('[云函数] [cmtMyCourses] 调用失败', err)
         }
       })
-  }
+  },
+
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    switch (e.detail.column) {
+      case 0:
+        this.setData({
+          courseChooseTemp: [e.detail.value, 0, 0],
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].classes.map(i => i.class), this.data.courseList[e.detail.value].classes[0].teachers]
+        })
+        break;
+      case 1:
+        this.setData({
+          courseChooseTemp: [this.data.courseChooseTemp[0],e.detail.value,0],
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseChooseList[1], this.data.courseList[this.data.courseChooseTemp[0]].classes[e.detail.value].teachers]
+        })
+        break;
+      case 2:
+        this.setData({
+          courseChooseTemp: [this.data.courseChooseTemp[0], this.data.courseChooseTemp[1], e.detail.value]
+          //courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].class, this.data.courseList[e.detail.value].teacher]
+        })
+    }
+  },
+
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      courseChoose: [this.data.courseChooseList[0][this.data.courseChooseTemp[0]], this.data.courseChooseList[1][this.data.courseChooseTemp[1]],this.data.courseChooseList[2][this.data.courseChooseTemp[2]] ]
+    })
+  },
 })
 
