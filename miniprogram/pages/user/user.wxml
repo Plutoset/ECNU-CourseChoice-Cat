@@ -39,26 +39,26 @@
     <view class="user_main">
       <view class="function_title">功能</view>
       <view class="function_content">
-        <navigator url="../../pages/class/class">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/class.png"></image>
+        <navigator url="../../pages/myCourses/myCourses">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/myCourses.png"></image>
           <view class="function_name">我的选课</view>
         </navigator>
-        <navigator url="../../pages/comment/comment">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/comment.png"></image>
+        <navigator url="../../pages/cmtMyComments/cmtMyComments">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/cmtMyComments.png"></image>
           <view class="function_name">我的吐槽</view>
         </navigator>
-        <navigator url="../../pages/preference/preference">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/preference.png"></image>
+        <navigator url="../../pages/myCoursePreferences/myCoursePreferences">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/myCoursePreferences.png"></image>
           <view class="function_name">选课偏好</view>
         </navigator>
       </view>
       <view class="function_content">
-        <navigator url="../../pages/label/label">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/label.png"></image>
+        <navigator url="../../pages/myTags/myTags">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/myTags.png"></image>
           <view class="function_name">贴的标签</view>
         </navigator>
-        <navigator url="../../pages/about/about">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/about.png"></image>
+        <navigator url="../../pages/aboutUs/aboutUs">
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/aboutUs.png"></image>
           <view class="function_name">关于我们</view>
         </navigator>
         <navigator url="../../pages/feedback/feedback">
