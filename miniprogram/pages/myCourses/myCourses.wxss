@@ -1,6 +1,32 @@
 /* pages/class/class.wxss */
-.font_setting{
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.topTips {
   font-size: medium;
   text-align: center;
   margin-top: 5%;
+}
+
+.cmtMyCourses-container {
+  position: static;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.cmtMyCourses-container-item {
+  width: 35%;
+}
+
+.picker {
+  text-align: center;
+  border-radius: 2rpx;
+  height: 100%;
 }

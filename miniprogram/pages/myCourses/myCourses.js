@@ -1,20 +1,12 @@
-// pages/class/class.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    courseChoose: ["请选择"]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -62,5 +54,32 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  cmtMyCourses:  function () {
+    //if(this.data.courseChoose.length == 3)
+      wx.cloud.callFunction({
+        name: 'cmtMyCourses',
+        data: {
+          sort: "英语类",
+          class: "学术英语写作",
+          teacher: ["关晓仙"],
+          student: "cyy",
+          tag: [],
+          info: [],
+          //sort: "英语类",
+          //class: "学术英语写作",
+          //teacher: ["关晓仙"],
+          //student: "cyy",
+          //tag: [],
+          //info: [],
+        },
+        success: res => {  
+        },
+        fail: err => {
+          console.error('[云函数] [cmtMyCourses] 调用失败', err)
+        }
+      })
   }
 })
+
