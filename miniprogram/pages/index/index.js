@@ -9,7 +9,7 @@ Page({
     takeSession: false,
     requestResult: '',
     courseList: {},
-    courseChooseTemp: [-1,0],
+    courseChooseTemp: [0,0,0],
     courseChoose: ["请选择"],
     courseChooseList: {},
     courseComments: {}
@@ -47,7 +47,7 @@ Page({
         console.log(res.result)
         this.setData({
           courseList: res.result.data,
-          courseChooseList: [res.result.data.map(i => {return i._id}),[],[]]
+          courseChooseList: [res.result.data.map(i => i.sort), res.result.data[0].classes.map(i => i.class), res.result.data[0].classes[0].teachers]
         })
       },
       fail: err => {
@@ -88,13 +88,13 @@ Page({
       case 0:
         this.setData({
           courseChooseTemp: [e.detail.value, 0, 0],
-          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].class, this.data.courseList[e.detail.value].teacher]
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].classes.map(i => i.class), this.data.courseList[e.detail.value].classes[0].teachers]
         })
         break;
       case 1:
         this.setData({
           courseChooseTemp: [this.data.courseChooseTemp[0],e.detail.value,0],
-          courseChooseList: [this.data.courseChooseList[0], this.data.courseList[e.detail.value].class, this.data.courseList[e.detail.value].teacher]
+          courseChooseList: [this.data.courseChooseList[0], this.data.courseChooseList[1], this.data.courseList[this.data.courseChooseTemp[0]].classes[e.detail.value].teachers]
         })
         break;
       case 2:

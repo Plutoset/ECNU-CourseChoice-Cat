@@ -10,12 +10,8 @@ exports.main = async (event, context) => {
   .aggregate()
   .group({
     _id: '$sort',
-    'class': $.addToSet('$class'),
-    'teacher': $.addToSet('$teacher'),
   })
-  .group({
-    _id: null, count: { $sum: 1 }
-  })
+  .count("count")
   .end()
   const total = countResult.list[0].count
   // 计算需分几次取
@@ -24,11 +20,30 @@ exports.main = async (event, context) => {
   // 承载所有读操作的 promise 的数组
   const tasks = []
   for (let i = 0; i < batchTimes; i++) {
-    const promise = db.collection('Evaluation').aggregate()
+    const promise = db.collection('Evaluation')
+    .aggregate()
+    .unwind('$teacher')
     .group({
-      _id: '$sort',
-      'class': $.addToSet('$class'),
-      'teacher': $.addToSet('$teacher'),
+      _id: {
+        'sort': '$sort',
+        'class': '$class',
+      },
+      'teachers': $.addToSet('$teacher'),
+    })
+    .group({
+      _id: '$_id.sort',
+      'classes': $.addToSet({
+        'class': '$_id.class',
+        'teachers': '$teachers'
+      })
+    })
+    .addFields({
+      'sort': '$_id'
+    })
+    .project({
+      _id: 0,
+      'sort': 1,
+      'classes': 1,
     })
     .skip(i * MAX_LIMIT)
     .limit(MAX_LIMIT)

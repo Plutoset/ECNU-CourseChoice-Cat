@@ -6,7 +6,7 @@
     <view class="search-container-item">
       <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{courseChooseTemp}}" range="{{courseChooseList}}">
         <view>
-          {{courseChoose[0]}} {{courseChoose[1]}}{{courseChoose[2]}}
+          {{courseChoose[0]}} {{courseChoose[1]}} {{courseChoose[2]}}
         </view>
       </picker>
     </view>
