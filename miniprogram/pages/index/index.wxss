@@ -69,3 +69,36 @@ page {
   font-size: smaller;
   text-align: justify;
 }
+
+.tags-container{
+  display: flex;
+  margin-top: 10%;
+  flex-direction: row;
+}
+.tags-container .tags{
+
+}
+.tags-container .tags button{
+  flex: 1;
+  text-align: center;
+  width: 100rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  justify-content: center;
+}
+.addTags{
+  display: flex;
+  flex: 1;
+  text-align: center;
+  width: 100rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  justify-content: center;
+  writing-mode: vertical-lr;
+}

@@ -16,6 +16,24 @@
     </view>
   </view>
 
+  <view wx:if="{{courseComments}}" class="tags-container">
+    <view wx:for="{{tagsList}}" class="tags">
+      <button>
+        {{item}}
+        <image class="iconfont" mode="aspectFit" style="height:25px;width:25px" src="../../icon/agree.svg"></image>
+      </button>
+    </view>
+    <view class="addTags">
+      <button>
+        添加
+        <image class="iconfont" mode="aspectFit" style="height:25px;width:25px" src="../../icon/agree.svg"></image>
+      </button>
+    </view>
+  </view>
+  <view class="tags-info">
+    (仅显示频率最高的五个标签)
+  </view>
+
   <view class="comments">
     <view wx:for="{{courseComments}}" class="comment">
       <view>
