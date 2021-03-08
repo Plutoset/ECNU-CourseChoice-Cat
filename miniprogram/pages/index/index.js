@@ -13,7 +13,7 @@ Page({
     courseChoose: ["请选择"],
     courseChooseList: {},
     courseComments: {},
-    tagsList:["标签A","标签B","标签C","标签D","标签E"]
+    tagsList:[["标签","default"],["标签","default"],["标签","default"]],
   },
 
   onLoad: function() {
@@ -132,6 +132,14 @@ Page({
           console.error('[云函数] [getComments] 调用失败', err)
         }
       })
+  },
+  btnLike:function(e){
+    var id = e.currentTarget.dataset.index
+    var tagsList = this.data.tagsList
+    tagsList[id][1] = tagsList[id][1] == "default"?"primary":"default"
+    this.setData({
+      tagsList
+    })
   }
 
 })

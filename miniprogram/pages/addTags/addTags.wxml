@@ -1,0 +1,5 @@
+<view class="showTags">
+  <view wx:for="{{allTags}}" class="tagList" >
+    <button size="mini">{{item}}</button>
+  </view>
+</view>

@@ -70,10 +70,11 @@ page {
   text-align: justify;
 }
 
-.tags-container{
+/* .tags-container{
   display: flex;
   margin-top: 10%;
   flex-direction: row;
+  justify-content: space-around;
 }
 .tags-container .tags{
 
@@ -81,24 +82,70 @@ page {
 .tags-container .tags button{
   flex: 1;
   text-align: center;
-  width: 100rpx;
+  width: 90rpx;
   padding: 2rpx 2rpx 2rpx 2rpx;
   border-radius: 10rpx;
   border:3rpx #91D300 solid;
   margin-left: 10rpx;
   margin-right: 10rpx;
-  justify-content: center;
 }
-.addTags{
+.addTags navigator{
   display: flex;
   flex: 1;
   text-align: center;
-  width: 100rpx;
+  width: 90rpx;
   padding: 2rpx 2rpx 2rpx 2rpx;
   border-radius: 10rpx;
   border:3rpx #91D300 solid;
   margin-left: 10rpx;
   margin-right: 10rpx;
-  justify-content: center;
   writing-mode: vertical-lr;
 }
+.tags-info{
+  margin-top: 20rpx;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+} */
+
+.tags-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 30rpx;
+  margin-bottom: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
+  justify-content:space-around;
+}
+
+.tags{
+  flex: auto;
+  text-align: center;
+  flex-direction: row;
+  width: 120rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+
+}
+/* .tags{
+  flex: auto;
+  text-align: center;
+  
+  flex-direction: row;
+  width: 180rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+} */
