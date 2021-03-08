@@ -12,7 +12,8 @@ Page({
     courseChooseTemp: [0,0,0],
     courseChoose: ["请选择"],
     courseChooseList: {},
-    courseComments: {}
+    courseComments: {},
+    tagsList:["标签A","标签B","标签C","标签D","标签E"]
   },
 
   onLoad: function() {
