@@ -1,2 +1,7 @@
 <!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<text>在使用过程中遇到任何的BUG或有任何建议</text>
+<text>可以通过以下微信联系我们</text>
+<view class="cyy">
+  <image type mode="aspectFit" src="../../icon/cyy.png"></image>
+</view>
+<text style="font-weight:bold">顺便给cyy征婚</text>

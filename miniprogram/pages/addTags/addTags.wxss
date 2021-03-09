@@ -1,0 +1,25 @@
+.showTags{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+  margin-bottom: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
+  justify-content:space-around;
+}
+.tagsList{
+}
+.showTags button{
+  flex: auto;
+  text-align: center;
+  
+  flex-direction: row;
+  width: 180rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
