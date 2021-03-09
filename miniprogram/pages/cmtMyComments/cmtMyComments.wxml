@@ -1,69 +1,58 @@
-<!--整体页面容器-->
-<view class="container">
-  <!--顶部提示文字容器-->
-  <view class="topTips">
-    <text>
-    在这里可以评价您修过的课程
-    并且为这门课贴上标签
-    您的每一条评价
-    都是对其他同学最大的帮助~
-
-
-    -------------请开始你的表演-------------
-
-
-    </text>
-  </view>
-  
-  <!--picker&button容器-->
-  <view class="cmtMyCourses-container">   
-    <!--picker-->
-    <view class="cmtMyCourses-container-item">
-      <view class="chooseClass">
-        <view class="font-class">课程：</view>
+<page>
+  <!--整体页面容器-->
+  <view class="container">
+    <!--顶部提示文字容器-->
+    <view class="topTips">
+      <text>在这里可以评价您修过的课程
+      并且为这门课贴上标签
+      您的每一条评价
+      都是对其他同学最大的帮助~</text>
+    </view>
+    
+    <!--picker&button容器-->
+    <view class="cmtMyCourses-container">   
+      <!--picker-->
+      <view class="cmtMyCourses-container-item">
+          <view class="font-class">课程：</view>
+      </view>
+      <view class="cmtMyCourses-container-item">
         <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{courseChooseTemp}}" range="{{courseChooseList}}">
-          <view>
-            {{courseChoose[0]}} {{courseChoose[1]}} {{courseChoose[2]}}
-          </view>
+          <view>{{courseChoose[0]}} {{courseChoose[1]}} {{courseChoose[2]}}</view>
         </picker>
       </view>
     </view>
-    <!--button-->
-  </view>
-  <view class="topTips">请选择标签</view>
-  <view class="showTags">
-    <view wx:for="{{allTags}}" class="tagList" >
-      <button size="mini" bindtap="btnLike" type="{{item[1]}}" data-index="{{index}}">{{item[0]}}</button>
+
+    <view class="topTips">请选择标签</view>
+    <view class="showTags">
+      <view wx:for="{{allTags}}" class="tagList" >
+        <button size="mini" bindtap="btnLike" type="{{item[1]}}" data-index="{{index}}">{{item[0]}}</button>
+      </view>
     </view>
-  </view>
-  
-  <!--评价键入-->
-  <!-- <view class="cmtMyComments-input">
-        <input class="cmtMyComments-input" auto-focus placeholder="请输入您的评论" confirm-type="done" bindinput="bindcmtMyCourses"/>
-  </view> -->
-  <editor id="editor" 
-		class="cmtMyComments-input" 
-		placeholder="请输入您的评论" 
-    bindstatuschange="onStatusChange"
-    bindinput="bindcmtMyCourses"
-		bindready="onEditorReady">
-  </editor>
-  <view class="cmtMyComments-container-item">
-      <button type="primary" bindtap="cmtMyComments" style="width:100%">吐  槽</button>
-  </view>
-  
-  <!--分割线-->
-  <view class="devide">
-    <text>
-      -------------已评价课程-------------
-    </text>
-  </view>
-  <!--显示已修课程-->
-  <view class="myCourses">
-    <view wx:for="{{myCourses}}" class="myCourse">
-      <view>
-        {{item.sort}}-{{item.class}}-{{item.teacher}}
+    
+    <!--评价键入-->
+    <!-- <view class="cmtMyComments-input">
+          <input class="cmtMyComments-input" auto-focus placeholder="请输入您的评论" confirm-type="done" bindinput="bindcmtMyCourses"/>
+    </view> -->
+    <editor id="editor" 
+      class="cmtMyComments-input" 
+      placeholder="请输入您的评论" 
+      bindinput="bindcmtMyCourses">
+    </editor>
+    <view class="cmtMyComments-container-item">
+        <button type="primary" bindtap="cmtMyComments" disabled="{{courseChoose.length != 3 || !myComment}}" style="width:100%">吐  槽</button>
+    </view>
+    
+    <!--分割线-->
+    <view class="devide">
+      <text>-------------已评价课程-------------</text>
+    </view>
+    <!--显示已修课程-->
+    <view class="myCourses">
+      <view wx:for="{{myCourses}}" class="myCourse">
+        <view>
+          {{item.sort}}-{{item.class}}-{{item.teacher}}
+        </view>
       </view>
     </view>
   </view>
-</view>
+</page>

@@ -11,7 +11,6 @@ page {
   color: #888;
 }
 
-
 .search-container {
   position: static;
   width: 100%;
@@ -134,6 +133,7 @@ page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+
 /* .tags{
   flex: auto;
   text-align: center;
@@ -147,6 +147,7 @@ page {
   margin-right: 20rpx;
   margin-top: 20rpx;
 } */
+
 .tips{
   margin-top: 30rpx;
 }

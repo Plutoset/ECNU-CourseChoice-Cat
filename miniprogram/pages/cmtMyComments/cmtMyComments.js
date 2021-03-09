@@ -118,7 +118,8 @@ Page({
           wx.showToast({
             title: '添加成功',
             duration: 2000
-          })        
+          })
+          this.getMyCourses()
         },
         fail: err => {
           console.error('[云函数] [cmtMyCourses] 调用失败', err)
@@ -128,7 +129,7 @@ Page({
           })
         },
       })
-      this.getMyCourses()
+      
   },
 
   bindMultiPickerColumnChange: function (e) {
