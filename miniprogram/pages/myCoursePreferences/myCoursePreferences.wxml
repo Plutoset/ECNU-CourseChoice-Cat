@@ -1,2 +1,14 @@
 <!--pages/preference/preference.wxml-->
-<text>pages/preference/preference.wxml</text>
+<view class="container">
+  <text class="font_setting">我们将根据您提交的评价为您推荐课程</text>
+  <text class="font_setting">只需提交三条评论就可以体验此功能</text>
+  <text class="font_setting">评价越多，猜的越准哦~</text>
+  <text class="font_setting">------------- 推荐课程 -------------</text>
+  <view class="myCourses">
+    <view wx:for="{{myCourses}}" class="myCourse">
+      <view>
+        {{item.sort}}-{{item.class}}-{{item.teacher}}
+      </view>
+    </view>
+  </view>
+</view>
