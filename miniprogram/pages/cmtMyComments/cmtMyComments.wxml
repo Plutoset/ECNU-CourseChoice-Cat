@@ -32,9 +32,22 @@
       <button size="mini" bindtap="btnLike" type="{{item[1]}}" data-index="{{index}}">{{item[0]}}</button>
     </view>
   </view>
-  <view class="cmtMyCourses-container-item">
-      <button type="primary" bindtap="cmtMyCourses" style="width:100%">吐  槽</button>
+  
+  <!--评价键入-->
+  <!-- <view class="cmtMyComments-input">
+        <input class="cmtMyComments-input" auto-focus placeholder="请输入您的评论" confirm-type="done" bindinput="bindcmtMyCourses"/>
+  </view> -->
+  <editor id="editor" 
+		class="cmtMyComments-input" 
+		placeholder="请输入您的评论" 
+    bindstatuschange="onStatusChange"
+    bindinput="bindcmtMyCourses"
+		bindready="onEditorReady">
+  </editor>
+  <view class="cmtMyComments-container-item">
+      <button type="primary" bindtap="cmtMyComments" style="width:100%">吐  槽</button>
   </view>
+  
   <!--分割线-->
   <view class="devide">
     <text>

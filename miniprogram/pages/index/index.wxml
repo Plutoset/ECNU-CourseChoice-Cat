@@ -18,8 +18,8 @@
 
   <view class="container">
     <view wx:if="{{courseComments}}" class="tags-container">
-      <button wx:for="{{tagsList}}" class="tags" type="{{item[1]}}" size="mini" bindtap="btnLike" data-index="{{index}}">
-        {{item[0]}}
+      <button wx:for="{{tagsList}}" class="tags" type="{{item}}" size="mini" bindtap="btnLike" data-index="{{index}}">
+        {{item}}
       </button>
     </view>
     <view class="tags-info">

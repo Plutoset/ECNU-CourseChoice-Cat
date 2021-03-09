@@ -13,7 +13,7 @@ Page({
     courseChoose: ["请选择"],
     courseChooseList: {},
     courseComments: {},
-    tagsList:[["标签","default"],["标签","default"],["标签","default"]],
+    tagsList:[["标签"],["标签"],["标签"]],
   },
 
   onLoad: function() {
@@ -125,7 +125,8 @@ Page({
         success: res => {
           console.log(res.result)
           this.setData({
-            courseComments: res.result.data.map(i => {return i.info})
+            courseComments: res.result.data.map(i => {return i.info}),
+            tagsList: res.result.data[0].tag,
           })
         },
         fail: err => {
