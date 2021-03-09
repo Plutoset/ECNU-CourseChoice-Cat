@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    top : -200,
-    flag : -1
+    buttontype : "primary",
+    catfile: "../../icon/cat.svg"
   },
+
   change:function(e){
-    top = this.data.top * this.data.flag;
     this.setData({
-      top
+      buttontype: "default",
+      catfile: "../../icon/wink.svg"
     }) ;
-    this.onShow();
   }
 
 })
