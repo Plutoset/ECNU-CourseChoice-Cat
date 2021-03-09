@@ -16,15 +16,15 @@
     </view>
   </view>
 
-  <view class="container">
-    <view wx:if="{{courseComments}}" class="tags-container">
+  <view class="container" wx:if="{{tagsList}}">
+    <view class="tags-container">
       <button wx:for="{{tagsList}}" class="tags" type="{{item[1]}}" size="mini" bindtap="btnLike" data-index="{{index}}">
         {{item[0]}}
       </button>
     </view>
-    <view class="tags-info">
+    <!-- <view class="tags-info">
       (仅显示频率最高的三个标签)
-    </view>
+    </view> -->
   </view>
 
   <view class="comments">
