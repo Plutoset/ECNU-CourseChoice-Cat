@@ -8,8 +8,8 @@ Page({
     courseChooseList: {},
     myCourses:{},
     openID: '',
+    myComment:"",
     allTags:[['硬核',"default"],['避雷',"default"],['推荐',"default"],['容易',"default"],['有趣',"default"],['严格',"default"],['枯燥',"default"],['不错',"default"]],
-    inputValue:"",
   },
 
   onLoad: function (options) {
@@ -95,17 +95,24 @@ Page({
 
   },
 
-  cmtMyCourses:  function () {
+  bindcmtMyCourses:function (e) {
+    console.log('内容为：', e.detail.text) 
+    this.setData({
+      myComment: e.detail.text,
+    })
+  },
+
+  cmtMyComments:  function () {
     if(this.data.courseChoose.length == 3)
       wx.cloud.callFunction({
-        name: 'cmtMyCourses',
+        name: 'cmtMyComments',
         data: {
           sort: this.data.courseChoose[0],
           class: this.data.courseChoose[1],
           teacher: [this.data.courseChoose[2]],
           student: this.data.openID,
-          tag: [],
-          info: [],
+          tag: this.data.allTags.map(i => i[1] == "primary" ? i[0] : null).filter(Boolean),
+          info: this.data.myComment,
         },
         success: res => {  
           wx.showToast({
@@ -172,6 +179,7 @@ Page({
     })
   } ,
   btnLike:function(e){
+    console.log(e)
     var id = e.currentTarget.dataset.index
     var allTags = this.data.allTags
     allTags[id][1] = allTags[id][1] == "default"?"primary":"default"
