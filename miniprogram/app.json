@@ -9,7 +9,8 @@
     "pages/myTags/myTags",
     "pages/aboutUs/aboutUs",
     "pages/feedback/feedback",
-    "pages/addTags/addTags"
+    "pages/addTags/addTags",
+    "pages/more/more"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -25,17 +26,18 @@
       "iconPath": "icon/_search.png",
       "selectedIconPath": "icon/search.png"
     },
-    {
-      "pagePath": "pages/find/find",
-      "text": "发现",
-      "iconPath": "icon/_find.png",
-      "selectedIconPath": "icon/find.png"
-    },
+  
     {
       "pagePath": "pages/user/user",
       "text": "我的",
       "iconPath": "icon/_my.png",
       "selectedIconPath": "icon/my.png"
+    },
+    {
+      "pagePath": "pages/aboutUs/aboutUs",
+      "text": "关于",
+      "iconPath": "icon/_aboutUs.png",
+      "selectedIconPath": "icon/aboutUs.png"
     }
     ],
     "selectedColor": "07c160"

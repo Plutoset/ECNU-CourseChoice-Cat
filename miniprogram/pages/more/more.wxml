@@ -1,0 +1,5 @@
+<!--pages/more/more.wxml-->
+<text class="font_setting">加急开发中</text>
+<text class="font_setting">点击按钮催促作者加班</text>
+<button class="btn" type="primary" style="top:{{top}}rpx" hover-class="none" bindtap="change">催促</button>
+<image class="logo" src="../../icon/cat.svg" style="width:40%" mode="widthFix"/>

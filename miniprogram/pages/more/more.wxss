@@ -1,0 +1,29 @@
+text{
+  font-size: medium;
+  text-align: center;
+  margin-top: 5%;
+}
+.cyy{
+  align-content: center;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.font_setting{
+  font-size: medium;
+  text-align: center;
+  margin-top: 5%;
+}
+.logo {
+  margin: 350rpx 50rpx 50rpx 50rpx;
+  display: flex;
+  align-content: center;
+  float: right;
+  float: bottom;
+}
+.btn{
+  margin-top: 200rpx;
+  position: fixed;
+  top:200rpx;
+  justify-content: center;
+}
