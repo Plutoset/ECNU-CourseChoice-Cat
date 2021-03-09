@@ -4,7 +4,7 @@ Page({
   data: {
     courseList: {},
     courseChooseTemp: [0,0,0],
-    courseChoose: ["请选择"],
+    courseChoose: [">请选择"],
     courseChooseList: {},
     myCourses:{},
     openID: '',

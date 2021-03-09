@@ -3,13 +3,13 @@
   <!--顶部提示文字容器-->
   <view class="topTips">
     <text>
-    在这里可以添加您选过的课程
-    我们会根据您的选课在“发现”中
-    为您推荐您可能感兴趣的课程
-    添加的越多，推荐的越准哦~
+    在这里可以评价您修过的课程
+    并且为这门课贴上标签
+    您的每一条评价
+    都是对其他同学最大的帮助~
 
 
-    --------------------------
+    -------------请开始你的表演-------------
 
 
     </text>
@@ -19,18 +19,27 @@
   <view class="cmtMyCourses-container">   
     <!--picker-->
     <view class="cmtMyCourses-container-item">
-      <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{courseChooseTemp}}" range="{{courseChooseList}}">
-        <view>
-          {{courseChoose[0]}} {{courseChoose[1]}} {{courseChoose[2]}}
-        </view>
-      </picker>
+      <view class="chooseClass">
+        <view class="font-class">课程：</view>
+        <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{courseChooseTemp}}" range="{{courseChooseList}}">
+          <view>
+            {{courseChoose[0]}} {{courseChoose[1]}} {{courseChoose[2]}}
+          </view>
+        </picker>
+      </view>
     </view>
     <!--button-->
   </view>
+  <view class="topTips">请选择标签</view>
   <view class="showTags">
     <view wx:for="{{allTags}}" class="tagList" >
       <button size="mini" bindtap="btnLike" type="{{item[1]}}" data-index="{{index}}">{{item[0]}}</button>
     </view>
+  </view>
+  <view class="tagsTips">（暂不支持自定义标签）</view>
+  <view class="tagsTips">您的评价</view>
+  <view class="inputSetting">
+    <textarea type="text" placeholder="在此输入您的评价" maxlength="-1" ></textarea>
   </view>
   <view class="cmtMyCourses-container-item">
       <button type="primary" bindtap="cmtMyCourses" style="width:100%">吐  槽</button>
@@ -38,7 +47,7 @@
   <!--分割线-->
   <view class="devide">
     <text>
-      ---------已评价课程---------
+      -------------已评价课程-------------
     </text>
   </view>
   <!--显示已修课程-->

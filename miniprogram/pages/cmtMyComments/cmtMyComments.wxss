@@ -23,6 +23,7 @@ page {
 
 .cmtMyCourses-container-item {
   width: 35%;
+  margin-top: 5%;
 }
 
 .picker {
@@ -79,4 +80,22 @@ page {
   margin-left: 20rpx;
   margin-right: 20rpx;
   margin-top: 20rpx;
+}
+.chooseClass{
+  display: flex;
+}
+.tagsTips {
+  font-size: medium;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.inputSetting{
+  padding: 10rpx 10rpx 20rpx 20rpx;
+  border: 1rpx solid #91D300;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20rpx;
+}
+.font-class{
+  font-size: medium;
 }
