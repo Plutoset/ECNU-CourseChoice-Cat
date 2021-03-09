@@ -12,7 +12,8 @@ exports.main = async (event, context) => {
     })
     .field({
       _id: false,
-      info: true
+      info: true,
+      tag: true,
     })
     .get()
   return result
