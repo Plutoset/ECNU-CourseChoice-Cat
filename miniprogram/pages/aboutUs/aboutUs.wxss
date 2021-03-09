@@ -1,6 +1,24 @@
-/* pages/about/about.wxss */
+/* pages/feedback/feedback.wxss */
+text{
+  font-size: medium;
+  text-align: center;
+  margin-top: 5%;
+}
+.cyy{
+  align-content: center;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
 .font_setting{
   font-size: medium;
   text-align: center;
   margin-top: 5%;
+}
+.logo {
+  margin: 50rpx 50rpx 50rpx 50rpx;
+  display: flex;
+  align-content: center;
+  float: right;
+  float: bottom;
 }

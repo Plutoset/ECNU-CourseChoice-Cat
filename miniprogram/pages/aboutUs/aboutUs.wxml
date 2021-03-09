@@ -1,11 +1,16 @@
 <view>
-  <view class="font_setting">欢迎使用华东师范大学选课猫！</view>
+  <view class="font_setting" style="font-weight:bold">欢迎使用华东师范大学选课猫！</view>
   <view class="font_setting">本小程序用于上海市计算机应用能力大赛</view>
   <view class="font_setting">小程序作者：</view>
-  <view class="font_setting">陈姚宇</view>
-  <view class="font_setting">林霁</view>
-  <view class="font_setting">汤博</view>
-  <view class="font_setting">鸣谢：</view>
-  <view class="font_setting">缪渠成</view>
-  <view class="font_setting">制作不易，请勿抄袭</view>
+  <view class="font_setting">陈姚宇&&林霁&&汤博</view>
+  <view class="font_setting">鸣谢：缪渠成</view>
+  <view class="font_setting">鸣谢：华东师大浙江老乡群</view>
+  <view class="font_setting" style="font-weight:bold">制作不易，请勿抄袭</view>
+  <image class="logo" src="../../icon/cat.svg" style="width:40%" mode="widthFix"/>
 </view>
+<text style="font-weight:bold">在使用过程中遇到任何的BUG或有任何建议</text>
+<text style="font-weight:bold">可以通过以下微信联系我们</text>
+<view class="cyy">
+  <image type mode="aspectFit" src="../../icon/cyy.png"></image>
+</view>
+<text style="font-weight:bold">顺便给cyy征婚</text>
