@@ -4,11 +4,15 @@
   <text class="font_setting">只需提交三条评论就可以体验此功能</text>
   <text class="font_setting">评价越多，猜的越准哦~</text>
   <text class="font_setting">------------- 推荐课程 -------------</text>
-  <view class="myCourses">
-    <view wx:for="{{myCourses}}" class="myCourse">
+    
+  
+  <view class="recommendations" wx:if="{{numComments > 2}}">
+    <view wx:for="{{recommendation}}" class="recommendation">
       <view>
-        {{item.sort}}-{{item.class}}-{{item.teacher}}
+        {{item}}
       </view>
     </view>
   </view>
+
+
 </view>

@@ -1,25 +1,66 @@
 // pages/preference/preference.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    myCourses:{},
+    recommendation:[],
+    openID: "",
+    numComments:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'login',
+      data:{},
+      success: res => {
+        console.log(res.result)
+        this.setData({
+          openID: res.result.openid,
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
 
+    // wx.cloud.callFunction({
+    //   name: 'countMyComments',
+    //   data:{
+    //     student: this.data.openID
+    //   },
+    //   success: res => {
+    //     console.log(res.result)
+    //     this.setData({
+    //       numComments: res.result.list,
+    //     })
+    //   },
+    //   fail: err => {
+    //     console.error('[云函数] [countMyComments] 调用失败', err)
+    //   }
+    // })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.cloud.callFunction({
+      name: 'countMyComments',
+      data:{
+        student: this.data.openID
+      },
+      success: res => {
+        console.log(res.result)
+        this.setData({
+          numComments: res.result.list,
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [countMyComments] 调用失败', err)
+      }
+    })
   },
 
   /**
@@ -62,5 +103,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getRecommendation: function(){
+    setTimeout(()=>{
+      this.setData({
+        recommendation: [["网球","王德建"],["流行舞","马素"]]
+      })
+    },600)
   }
+
 })
+
