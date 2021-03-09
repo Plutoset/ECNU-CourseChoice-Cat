@@ -39,7 +39,7 @@
   <view class="tagsTips">（暂不支持自定义标签）</view>
   <view class="tagsTips">您的评价</view>
   <view class="inputSetting">
-    <textarea type="text" placeholder="在此输入您的评价" maxlength="-1" ></textarea>
+    <textarea bindblur="bindTextAreaBlur" type="text" placeholder="在此输入您的评价" maxlength="-1" value="{{inputValue}}" ></textarea>
   </view>
   <view class="cmtMyCourses-container-item">
       <button type="primary" bindtap="cmtMyCourses" style="width:100%">吐  槽</button>

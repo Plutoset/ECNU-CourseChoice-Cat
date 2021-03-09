@@ -9,6 +9,7 @@ Page({
     myCourses:{},
     openID: '',
     allTags:[['硬核',"default"],['避雷',"default"],['推荐',"default"],['容易',"default"],['有趣',"default"],['严格',"default"],['枯燥',"default"],['不错',"default"]],
+    inputValue:"",
   },
 
   onLoad: function (options) {
@@ -177,7 +178,16 @@ Page({
     this.setData({
       allTags
     })
-  }
+  },
+  bindTextAreaBlur: function(e) {
+    this.setData({
+      inputVal:e.detail.value
+    }) 
+  }, 
+  
+  formSubmit: function(e) {
+    console.log(that.data.inputVal)
+  },
 })
 
  

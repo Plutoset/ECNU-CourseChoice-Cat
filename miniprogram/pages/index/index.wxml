@@ -17,6 +17,7 @@
   </view>
 
   <view class="container" wx:if="{{tagsList}}">
+    <view class="tips">Ta的标签：</view>
     <view class="tags-container">
       <button wx:for="{{tagsList}}" class="tags" type="{{item[1]}}" size="mini" bindtap="btnLike" data-index="{{index}}">
         {{item[0]}}
@@ -26,9 +27,9 @@
       (仅显示频率最高的三个标签)
     </view> -->
   </view>
-
-  <view class="comments">
-    <view wx:for="{{courseComments}}" class="comment">
+  <view wx:for="{{courseComments}}" class="comments">
+    <view class="tips">Ta的评价：</view>
+    <view class="comment">
       <view>
         {{item}}
       </view>
