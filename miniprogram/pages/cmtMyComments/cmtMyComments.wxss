@@ -66,8 +66,7 @@ page {
   margin-right: 3%;
   justify-content:space-around;
 }
-.tagsList{
-}
+
 .showTags button{
   flex: auto;
   text-align: center;
