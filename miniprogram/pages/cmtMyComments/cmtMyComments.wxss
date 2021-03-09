@@ -1,1 +1,82 @@
 /* pages/comment/comment.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.topTips {
+  font-size: medium;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.cmtMyCourses-container {
+  position: static;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.cmtMyCourses-container-item {
+  width: 35%;
+}
+
+.picker {
+  text-align: center;
+  border-radius: 2rpx;
+  height: 100%;
+}
+
+.devide{
+  margin-top: 100rpx;
+}
+
+.myCourses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.myCourse {
+  border-style: solid;
+  border-width: medium;
+  border-color: #91D300;
+  width: 90%;
+  margin: 10rpx 0 10rpx 0;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+
+.showTags{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+  margin-bottom: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
+  justify-content:space-around;
+}
+.tagsList{
+}
+.showTags button{
+  flex: auto;
+  text-align: center;
+  
+  flex-direction: row;
+  width: 180rpx;
+  padding: 2rpx 2rpx 2rpx 2rpx;
+  border-radius: 10rpx;
+  border:3rpx #91D300 solid;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}

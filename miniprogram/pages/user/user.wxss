@@ -1,4 +1,4 @@
-.page {
+page{
   background-color:white;
 }
 .user_info_wrap {
@@ -75,7 +75,7 @@
 }
 .user_content .function_wrap {
   background-color: #fff;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
 }
 .user_content .function_wrap .user_main .function_title {
   padding: 20rpx;
