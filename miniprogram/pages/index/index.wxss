@@ -149,3 +149,6 @@ page {
   margin-right: 20rpx;
   margin-top: 20rpx;
 } */
+.tips{
+  margin-top: 30rpx;
+}

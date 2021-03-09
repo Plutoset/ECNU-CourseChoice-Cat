@@ -13,7 +13,7 @@ Page({
     courseChoose: ["请选择"],
     courseChooseList: {},
     courseComments: {},
-    tagsList:[["标签"],["标签"],["标签"]],
+    tagsList: null,
   },
 
   onLoad: function() {
@@ -124,9 +124,16 @@ Page({
         },
         success: res => {
           console.log(res.result)
+          var tags = res.result.data.map(i => i.tag).flat()
+          tags = tags.reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null)) // DON'T MODIFY
+          var tagarray = [];
+          for(var i in tags)
+            tagarray.push([i, tags[i]])
+          tagarray.sort((a,b) => b[1] - a[1])
+          console.log(tagarray)
           this.setData({
-            courseComments: res.result.data.map(i => {return i.info}),
-            tagsList: res.result.data[0].tag,
+            courseComments: res.result.data.map(i => i.info),
+            tagsList: tagarray.map(t => [t[0],"default"])
           })
         },
         fail: err => {

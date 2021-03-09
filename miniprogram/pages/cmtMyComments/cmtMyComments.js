@@ -4,13 +4,12 @@ Page({
   data: {
     courseList: {},
     courseChooseTemp: [0,0,0],
-    courseChoose: ["请选择"],
+    courseChoose: [">请选择"],
     courseChooseList: {},
     myCourses:{},
     openID: '',
     myComment:"",
     allTags:[['硬核',"default"],['避雷',"default"],['推荐',"default"],['容易',"default"],['有趣',"default"],['严格',"default"],['枯燥',"default"],['不错',"default"]],
-    myTags:[],
   },
 
   onLoad: function (options) {
@@ -187,7 +186,16 @@ Page({
     this.setData({
       allTags
     })
-  }
+  },
+  bindTextAreaBlur: function(e) {
+    this.setData({
+      inputVal:e.detail.value
+    }) 
+  }, 
+  
+  formSubmit: function(e) {
+    console.log(that.data.inputVal)
+  },
 })
 
  
