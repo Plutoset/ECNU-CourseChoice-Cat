@@ -50,7 +50,7 @@ page {
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  margin-top: 20rpx;
+  margin-top: 25rpx;
 }
 
 .comment {
@@ -116,7 +116,7 @@ page {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   margin-bottom: 5%;
   margin-left: 3%;
   margin-right: 3%;
@@ -133,8 +133,6 @@ page {
   border:3rpx #91D300 solid;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  margin-top: 20rpx;
-
 }
 /* .tags{
   flex: auto;
