@@ -12,7 +12,7 @@
     </view>
 
     <view class="search-container-item">
-      <button type="primary" bindtap="bindSearch" style="width:100%">查询</button>
+      <button type="primary" bindtap="bindSearch" disabled="{{courseChoose.length != 3}}" style="width:100%">查询</button>
     </view>
   </view>
 
