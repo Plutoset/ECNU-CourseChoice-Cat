@@ -39,7 +39,7 @@
   },
   "appid": "wx31f3c822cf8425ff",
   "projectname": "ECNU-PElookup",
-  "libVersion": "2.8.1",
+  "libVersion": "2.15.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",

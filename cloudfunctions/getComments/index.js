@@ -6,7 +6,6 @@ const db = cloud.database({env:'chake-7g37b76526c08c7a'})
 exports.main = async (event, context) => {
   const result = await db.collection('Evaluation')
     .where({
-      'sort': event.sort,
       'class': event.class,
       'teacher': event.teacher
     })

@@ -4,7 +4,7 @@ Page({
   data: {
     recommendation:[["网球","王德建"],["流行舞","马素"]],
     openID: "",
-    numComments:"",
+    recommendinfo: null,
     tagsList:null,
     myCourses: [],
   },
@@ -21,53 +21,20 @@ Page({
         this.setData({
           openID: res.result.openid,
         })
+        this.getRecommendation()
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
       }
     })
 
-    // wx.cloud.callFunction({
-    //   name: 'countMyComments',
-    //   data:{
-    //     student: this.data.openID
-    //   },
-    //   success: res => {
-    //     console.log(res.result)
-    //     this.setData({
-    //       numComments: res.result.list,
-    //     })
-    //   },
-    //   fail: err => {
-    //     console.error('[云函数] [countMyComments] 调用失败', err)
-    //   }
-    // })
-    setTimeout(() => {
-      this.setData({
-        myCourses: [{sort: "体育类", class: "网球", teacher: ['王德建']},{sort: "体育类", class: "篮球", teacher: ['朱毅']},{sort: "价值、社会与进步", class: "程序正义与经典案例解析", teacher: ['黄翔']}],
-      })
-    },800)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.cloud.callFunction({
-      name: 'countMyComments',
-      data:{
-        student: this.data.openID
-      },
-      success: res => {
-        console.log(res.result)
-        this.setData({
-          numComments: res.result.list,
-        })
-      },
-      fail: err => {
-        console.error('[云函数] [countMyComments] 调用失败', err)
-      }
-    })
+    
   },
 
   /**
@@ -113,12 +80,39 @@ Page({
   },
 
   getRecommendation: function(){
-    setTimeout(()=>{
-      this.setData({
-        recommendation: [["网球","王德建"],["流行舞","马素"]]
-      })
-    },600)
+    var openid = this.data.openID
+    var that = this
+    wx.cloud.callFunction({
+      name: 'countMyComments',
+      data:{
+        student: this.data.openID
+      },
+      success: async function(res) {
+        console.log(res.result)
+        if (res.result.list[0].count < 3) {
+          this.setData({
+            recommendinfo: "你仅上传了" + res.result.list[0].count + "条评论, 还不能获得推荐课程",
+          })
+          return
+        }
+
+        const r = await wx.cloud.callContainer({
+          path: '/container-python/recommend/' + openid,
+          method: 'GET',
+        })
+        
+        console.log(r)
+
+        that.setData({
+          myCourses: r.data
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [countMyComments] 调用失败', err)
+      }
+    })
   },
+
   getClassCmt: function (e) {
     var id = e.currentTarget.dataset.index
     if(!this.data.myCourses[id].comments)

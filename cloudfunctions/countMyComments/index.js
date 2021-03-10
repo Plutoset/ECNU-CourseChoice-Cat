@@ -7,7 +7,7 @@ exports.main = async (event, context) => {
   const result = await db.collection('TestcmtCourses')
   .aggregate()
   .match({
-  student: event.student
+    student: event.student
   })
   .count("count")
   .end()
