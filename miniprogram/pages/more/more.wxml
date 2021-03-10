@@ -1,8 +1,15 @@
 <!--pages/more/more.wxml-->
 <view class="container">
-  <text class="font_setting">加急开发中</text>
-  <text class="font_setting">点击按钮催促作者加班</text>
-  <button class="btn" type="{{buttontype}}" bindtap="change">催促</button>
+  <text class="font_setting">感谢您使用华东师范大学选课猫</text>
+  <text class="font_setting">对本程序有任何的意见或建议</text>
+  <text class="font_setting">或小程序存在任何的BUG</text>
+  <text class="font_setting">都可以在这里反馈</text>
+  <editor id="editor" 
+      class="cmtMyComments-input" 
+      placeholder="请在此输入" 
+      bindinput="bindcmtMyCourses">
+    </editor>
+  <button class="btn" type="{{buttontype}}" bindtap="change">提交</button>
   <image class="logo" src="{{catfile}}" style="width:40%" mode="widthFix"/>
 </view>
 
