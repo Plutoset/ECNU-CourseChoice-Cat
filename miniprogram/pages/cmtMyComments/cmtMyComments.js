@@ -173,6 +173,7 @@ Page({
         this.setData({          
           myCourses: res.result.data
         })
+        // console.log(this.data.myCourses)
       },
       fail: err => {
         console.error('[云函数] [getMyCourses] 调用失败', err)

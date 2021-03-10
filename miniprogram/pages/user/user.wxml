@@ -25,8 +25,8 @@
           <view class="function_name">选课偏好</view>
         </navigator>
         <navigator url="../../pages/more/more">
-          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/more.svg"></image>
-          <view class="function_name">更多功能</view>
+          <image class="iconfont" mode="aspectFit" style="height:32px;width:32px" src="../../icon/feedback.svg"></image>
+          <view class="function_name">意见反馈</view>
         </navigator>
       </view>
     </view>

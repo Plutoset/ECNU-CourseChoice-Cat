@@ -14,5 +14,26 @@
     </view>
   </view>
 
+  <view class="myCourses">
+    <view wx:for="{{myCourses}}" class="myCourse" data-index="{{index}}" bindtap="getClassCmt">
+      <view>
+        <view >
+          {{item.sort}}-{{item.class}}-{{item.teacher}}
+        </view>
+        <view >
+          <!-- 默认隐藏部分 -->
+          <view class="container" wx:for="{{item.comments}}">
+            <view class="myCourse" style="border-color:#777777;">
+              {{item}}
+            </view>
+          </view>
+            <!-- <view class="tags-info">
+              (仅显示频率最高的三个标签)
+            </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+
 
 </view>
