@@ -18,7 +18,7 @@
     <view wx:for="{{myCourses}}" class="myCourse" data-index="{{index}}" bindtap="getClassCmt">
       <view>
         <view >
-          {{item.class}}-{{item.teacher}}
+          👇{{item.class}}-{{item.teacher}}
         </view>
         <view >
           <!-- 默认隐藏部分 -->
