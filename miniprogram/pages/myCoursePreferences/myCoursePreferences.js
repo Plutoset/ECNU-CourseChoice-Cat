@@ -90,7 +90,7 @@ Page({
       success: async function(res) {
         console.log(res.result)
         if (res.result.list[0].count < 3) {
-          this.setData({
+          that.setData({
             recommendinfo: "你仅上传了" + res.result.list[0].count + "条评论, 还不能获得推荐课程",
           })
           return
