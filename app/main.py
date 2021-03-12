@@ -4,6 +4,7 @@ from flask import Flask, request, Response, json, jsonify
 from flask_caching import Cache
 import requests
 import csv
+import math
 
 cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 app = Flask(__name__)
@@ -20,27 +21,29 @@ def getAccessToken():
     response = json.loads(response.text)
     return response['access_token']
 
+@cache.cached(timeout=86400, key_prefix='MainData')
+def getMainData():
+    url = f"https://api.weixin.qq.com/tcb/invokecloudfunction?access_token={getAccessToken()}&env=chake-7g37b76526c08c7a&name=getUserTagList"
+
+    response = requests.request("POST", url)
+    response = json.loads(response.text)
+
+    if (response['errcode'] != 0):
+        raise Exception(response['errmsg'])
+
+    return json.loads(response['resp_data'])
+
 def genData(user):
-    USER_DATA_URL = f"https://api.weixin.qq.com/tcb/databaseaggregate?access_token={getAccessToken()}"
+    DB_URL = f"https://api.weixin.qq.com/tcb/databaseaggregate?access_token={getAccessToken()}"
     userDataPostBody = "{\r\n  \"env\":\"chake-7g37b76526c08c7a\",\r\n  \"query\": \"db.collection('TestcmtCourses').aggregate().match({student: '"+ user +"',}).unwind('$tag').unwind('$teacher').project({_id: 0,class: $.concat(['$class', '&', '$teacher']),student: 1,tag: 1,}).end()\"\r\n}"
-    ur = requests.post(USER_DATA_URL, data=userDataPostBody)
+    ur = requests.post(DB_URL, data=userDataPostBody)
     ur = json.loads(ur.text)
     if (ur['errcode'] != 0):
         raise Exception(ur['errmsg'])
 
     userdata = list(map(json.loads, ur['data']))
 
-    # with open('data.json', 'r') as f:
-    #     data = json.load(f)
-    data = []
-    with open('./data.csv') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            data.append(row)
-
-    data = data + userdata
-
-    return data
+    return userdata + getMainData()
  
 def getUItem_label(data):
     UI_label=dict()
@@ -149,15 +152,6 @@ def recommend(user):
     return jsonify(result)
     # return str(rec)
 
-@app.route('/updatedata', methods=["POST"])
-def updatedata():
-    if 'file' in request.files:
-        file = request.files['file']
-        if file.filename == 'data.csv':
-            file.save('./data.csv')
-    return 'Success!'
-
 if __name__ == "__main__":
     app.config['JSON_AS_ASCII'] = False
     app.run(host='0.0.0.0',port=int(os.environ.get('PORT', 80)))
-
