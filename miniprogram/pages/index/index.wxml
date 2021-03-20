@@ -23,9 +23,7 @@
         {{item[0]}}
       </button>
     </view>
-    <!-- <view class="tags-info">
-      (仅显示频率最高的三个标签)
-    </view> -->
+
   </view>
   <view class="comments" wx:if="{{courseComments.length > 0}}">
     <view class="tips">Ta的评价：</view>
