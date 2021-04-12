@@ -8,7 +8,7 @@
     </view>
   </view>
   <view wx:else class="user_btn">
-    <button type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">登录</button>
+    <button type="primary" open-type="getUserInfo" bindtap="toGetUserProfile">登录</button>
   </view>
 </view>
 <view wx:if="{{userinfo.avatarUrl}}" class="user_content">

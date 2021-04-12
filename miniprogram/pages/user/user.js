@@ -1,10 +1,18 @@
 // pages/user/user.js
 Page({
-  handleGetUserInfo(e){
-    console.log(e);
-    const {userInfo}=e.detail;
-    wx.setStorageSync('userinfo', userInfo);
-    this.onShow();
+  toGetUserProfile(e){
+    var that=this;
+    wx.getUserProfile({
+      desc:"onloading...",
+      success:function(res){
+        console.log(res.userInfo);
+        wx.setStorageSync('userinfo', res.userInfo);
+        that.setData({userinfo:res.userInfo});
+      },
+      fail:function(err){
+        console.log(err)
+      }
+    })
   },
   g(e){
     console.log(e)
